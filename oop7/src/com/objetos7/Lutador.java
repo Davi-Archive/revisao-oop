@@ -1,9 +1,15 @@
 package com.objetos7;
 
 public class Lutador {
-	private String nome, nacionalidade, categoria;
-	private double altura, peso;
-	private int vitoria, derrota, empate, idade;
+	private String nome;
+	private String nacionalidade;
+	private String categoria;
+	private double altura;
+	private double peso;
+	private int vitoria;
+	private int derrota;
+	private int empate;
+	private int idade;
 
 	// Constructor
 	public Lutador(String nome, String nacionalidade, int idade, double altura, double peso, String categoria,
@@ -13,7 +19,7 @@ public class Lutador {
 		this.nacionalidade = nacionalidade;
 		this.idade = idade;
 		this.altura = altura;
-		this.peso = peso;
+		this.setPeso(peso);
 		this.categoria = categoria;
 		this.vitoria = vitoria;
 		this.derrota = derrota;
@@ -26,15 +32,15 @@ public class Lutador {
 		System.out.println(getIdade() + " anos.");
 		System.out.println(getAltura() + " de altura.");
 		System.out.println("Pesando: " + getPeso());
-		System.out.println("Ganhou " + getVitoria());
-		System.out.println("Perdeu " + getDerrota());
-		System.out.println("Empatou " + getEmpate());
+		System.out.println("Ganhou " + getVitoria()+ " vezes.");
+		System.out.println("Perdeu " + getDerrota()+ " vezes.");
+		System.out.println("Empatou " + getEmpate()+ " vezes.");
 
 	}
 
 	public void status() {
 		System.out.println(getNome());
-		System.out.println("É um peso " + getCategoria());
+		System.out.println("E um peso " + getCategoria());
 		System.out.println(getVitoria() + " vitorias.");
 		System.out.println(getDerrota() + " derrotas.");
 		System.out.println(getEmpate() + " empates.");
@@ -76,13 +82,13 @@ public class Lutador {
 	}
 
 	public void setCategoria() {
-		if (this.getPeso() < 52.2) {
+		if (this.peso < 52.2) {
 			this.categoria = "Categoria inválida";
-		} else if (this.getPeso() <= 70.3) {
+		} else if (this.peso <= 70.3) {
 			this.categoria = "Leve";
-		} else if (this.getPeso() <= 83.9) {
+		} else if (this.peso <= 83.9) {
 			this.categoria = "Médio";
-		} else if (this.getPeso() < 120.2) {
+		} else if (this.peso < 120.2) {
 			this.categoria = "Pesado";
 		} else {
 			this.categoria = "Inválido";
@@ -103,7 +109,7 @@ public class Lutador {
 
 	public void setPeso(double peso) {
 		this.peso = peso;
-		this.getCategoria();
+		this.setCategoria();
 	}
 
 	public int getVitoria() {
